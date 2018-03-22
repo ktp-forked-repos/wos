@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prawa i Obowiązki - projekt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+    <div id="app-root">
+        <material-nav></material-nav>
+        <div class="container">
+            <item-cluster cluster-type="law" title="prawa" v-bind:toggle="toggle" v-bind:callback="toggleLaws" v-bind:active="laws"></item-cluster>
+            <item-cluster cluster-type="obligation" title="obowiązki" v-bind:toggle="toggle" v-bind:callback="toggleObligations" v-bind:active="obligations"></item-cluster>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/assets.js"></script>
+    <script src="/app.js"></script>
+    
+</body>
+</html>
