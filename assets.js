@@ -2,7 +2,7 @@
     Laws: [
 	{
 		title:"prawo do sprawiedliwego procesu"
-	}
+	},
 	{
 		title:"prawo do wolności poglądów oraz do rozpowszechniania informacji"
 	},
