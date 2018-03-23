@@ -4,7 +4,7 @@
 Vue.component(`material-nav`, {
     template: `<nav>
     <div class="nav-wrapper red">
-      <a class="brand-logo center">Prawa i Obowiązki</a>
+      <a class="brand-logo center">Prawa i obowiązki obywateli w państwie demokatycznym</a>
     </div>
   </nav>`
 });
@@ -23,10 +23,10 @@ Vue.component(`item`, {
 });
 
 Vue.component(`item-cluster`, {
-    props: [`title`, `clusterType`, `toggle`, `callback`, `active`, `closeLaws`, `closeObligations`],
+    props: [`title`, `clusterType`, `toggle`, `callback`],
     template: `
     <div v-if="clusterType == 'law'">
-        <div class="cluster card-panel red darken-1" v-on:click="callback" v-if="toggle == 'laws' || toggle == ''" style="heigth: 10em">
+        <div class="cluster card-panel red darken-1" v-on:click="callback">
             <div class="card-content white-text scorll">
                 <h5>{{title.toUpperCase()}}</h5>
                 <div v-if="clusterType == 'law' && toggle == 'laws'" v-for="law in laws">
@@ -36,7 +36,7 @@ Vue.component(`item-cluster`, {
         </div>
     </div>
     <div v-else>
-        <div class="cluster card-panel red darken-1" v-on:click="callback" v-if="toggle == 'obligations' || toggle == ''" style="heigth: 10em">
+        <div class="cluster card-panel red darken-1" v-on:click="callback">
             <div class="card-content white-text">
                 <h5>{{title.toUpperCase()}}</h5>
                 <div v-if="clusterType == 'obligation' && toggle == 'obligations'" v-for="obligation in obligations">
@@ -57,28 +57,31 @@ new Vue({
     el: `#app-root`,
     data: {
         toggle: ``,
-        laws: true,
-        obligations: true
+        fullscreen: false
     },
     methods: {
         toggleLaws: function (){
             if(this.laws){
                 this.toggle = `laws`;
                 this.laws = !this.laws;
+                this.fullscreen = true;
             }
             else{
                 this.laws = !this.laws;
                 this.toggle = ``;
+                this.fullscreen = false;                
             }
         },
         toggleObligations: function(){
             if(this.obligations){
                 this.toggle = `obligations`;
                 this.obligations = !this.obligations;
+                this.fullscreen = true;                
             }
             else{
                 this.obligations = !this.obligations;
                 this.toggle = ``;
+                this.fullscreen = false;                
             }
         }
     }

@@ -12,14 +12,32 @@
     <div id="app-root">
         <material-nav></material-nav>
         <div class="container">
-            <item-cluster cluster-type="law" title="prawa" v-bind:toggle="toggle" v-bind:callback="toggleLaws" v-bind:active="laws"></item-cluster>
-            <item-cluster cluster-type="obligation" title="obowiązki" v-bind:toggle="toggle" v-bind:callback="toggleObligations" v-bind:active="obligations"></item-cluster>
+            <div class="card-panel red darken-2" style="margin-top: 30px; margin-bottom: 30px;">
+                <h5 class="center white-text">demokracja - system rządów w którym rządzi większość z poszanowaniem praw mniejszości</h5>                
+            </div>
+            <div class="row">
+                <div class="col s12" v-bind:class="{'l7': !fullscreen, 'push-l5': !fullscreen}" v-if="!fullscreen">
+                    <img src="http://slideplayer.pl/slide/2844521/10/images/1/Zasady+Współczesnej+Demokracji.jpg" alt="" class="responsive-img">
+                </div>
+                <div class="col s12" v-bind:class="{'l5': !fullscreen, 'pull-l7': !fullscreen}">
+                    <item-cluster cluster-type="law" title="prawa" v-bind:toggle="toggle" v-bind:callback="toggleLaws"></item-cluster>  
+                    <item-cluster cluster-type="obligation" title="obowiązki" v-bind:toggle="toggle" v-bind:callback="toggleObligations"></item-cluster>                      
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <img class="responsive-img" src="http://i.wp.pl/a/f/jpeg/30883/epa_paryz_demonstracja600.jpeg" alt="">                
+                </div>
+                <div class="col s6">
+                    <img class="responsive-img" src="https://d-nm.ppstatic.pl/kadr/k/r/25/61/571ce050d8c3e_o,size,933x0,q,70,h,445592.jpg" alt="">                
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://ramboxeu.github.io/wos/assets.js"></script>
-    <script src="https://ramboxeu.github.io/wos/app.js"></script>
+    <script src="/assets.js"></script>
+    <script src="/app.js"></script>
     
 </body>
 </html>
