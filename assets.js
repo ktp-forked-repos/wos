@@ -1,8 +1,8 @@
-const Assets = {
+﻿const Assets = {
     Laws: [
 	{
 		title:"prawo do sprawiedliwego procesu"
-	},
+	}
 	{
 		title:"prawo do wolności poglądów oraz do rozpowszechniania informacji"
 	},
@@ -45,7 +45,7 @@ const Assets = {
 		title:"przestrzeganie prawa RP",
 	},
 	{
-		title:"ponoszenie ciąarów i świadczeń na rzecz państwa (np. płacenie podatków)",
+		title:"ponoszenie ciężarów i świadczeń na rzecz państwa (np. płacenie podatków)",
 	}
     ]
 }
