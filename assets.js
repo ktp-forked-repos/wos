@@ -47,10 +47,5 @@
 	{
 		title:"ponoszenie ciężarów i świadczeń na rzecz państwa (np. płacenie podatków)"
 	}
-    ],
-    Constitution: [
-    {
-        title: "lorem ipsum"
-    }
     ]
 }
