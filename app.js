@@ -4,7 +4,7 @@
 Vue.component(`material-nav`, {
     template: `<nav>
     <div class="nav-wrapper red">
-      <a class="brand-logo center">Prawa i obowiązki obywateli w państwie demokatycznym</a>
+      <a class="brand-logo center"><h5 class="truncate">Prawa i obowiązki obywateli w państwie demokratycznym</h5></a>
     </div>
   </nav>`
 });
@@ -26,7 +26,7 @@ Vue.component(`item-cluster`, {
     props: [`title`, `clusterType`, `toggle`, `callback`],
     template: `
     <div v-if="clusterType == 'law'">
-        <div class="cluster card-panel red darken-1" v-on:click="callback">
+        <div class="cluster card-panel red darken-1 hoverable" v-on:click="callback">
             <div class="card-content white-text scorll">
                 <h5>{{title.toUpperCase()}}</h5>
                 <div v-if="clusterType == 'law' && toggle == 'laws'" v-for="law in laws">
@@ -35,8 +35,8 @@ Vue.component(`item-cluster`, {
             </div>
         </div>
     </div>
-    <div v-else>
-        <div class="cluster card-panel red darken-1" v-on:click="callback">
+    <div v-else-if="clusterType == 'obligation'">
+        <div class="cluster card-panel red darken-1 hoverable" v-on:click="callback">
             <div class="card-content white-text">
                 <h5>{{title.toUpperCase()}}</h5>
                 <div v-if="clusterType == 'obligation' && toggle == 'obligations'" v-for="obligation in obligations">
@@ -44,11 +44,22 @@ Vue.component(`item-cluster`, {
                 </div>
             </div>
         </div>
+    </div>
+    <div v-else-if="clusterType == 'constitution'">
+        <div class="cluster card-panel red darken-1" v-on:click="callback">
+            <div class="card-content white-text">
+                <h5>{{title.toUpperCase()}}</h5>
+                <div v-if="clusterType == 'constitution' && toggle == 'constitution'" v-for="item in constitution">
+                    <item v-bind:title="item.title" v-bind:content="item.content"></item>
+                </div>
+            </div>
+        </div>
     </div>`,
     data: function (){  
         return {
             laws: Assets.Laws,
-            obligations: Assets.Obligations
+            obligations: Assets.Obligations,
+            constitution: Assets.Constitution
         }
     }
 });
@@ -75,6 +86,18 @@ new Vue({
         toggleObligations: function(){
             if(this.obligations){
                 this.toggle = `obligations`;
+                this.obligations = !this.obligations;
+                this.fullscreen = true;                
+            }
+            else{
+                this.obligations = !this.obligations;
+                this.toggle = ``;
+                this.fullscreen = false;                
+            }
+        },
+        toggleConstitution: function(){
+            if(this.obligations){
+                this.toggle = `constitution`;
                 this.obligations = !this.obligations;
                 this.fullscreen = true;                
             }
